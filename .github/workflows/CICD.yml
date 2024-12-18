@@ -1,4 +1,4 @@
-name: CI + CD
+name: Firstpipline
 
 on:
   workflow_dispatch:
@@ -11,53 +11,13 @@ jobs:
       - name: Execute remote SSH commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: 161.97.132.169
-          username: hadielearning
+          host: 156.67.80.49
+          username: root
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            cd /home/hadielearning/hadielearn-prod-13
+            cd /root/hadielearn-prod-13
             git pull
             npm install -f
             pm2 reload api --update-env
 
-  Testing:
-    runs-on: ubuntu-latest
-    environment:
-      name: testing
-      url: "test.hadielearning.com"
-    needs: Staging
-    steps:
-      - name: Execute remote SSH commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: 161.97.132.169
-          username: hadielearning
-          key: ${{ secrets.SSH_KEY }}
-          port: 22
-          script: |
-            cd /home/hadielearning/hadielearn-prod-13
-            git pull
-            npm run build
-            pm2 reload test --update-env
-
-  Production:
-    runs-on: ubuntu-latest
-    environment:
-      name: Production
-      url: "hadielearning.com"
-    needs: Testing
-    steps:
-      - name: Execute remote SSH commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: 161.97.132.169
-          username: hadielearning
-          key: ${{ secrets.SSH_KEY }}
-          port: 22
-          script: |
-            cd /home/hadielearning/hadielearn-prod-13
-            git pull
-            pm2 stop test
-            npm run build
-            pm2 reload prod --update-env
