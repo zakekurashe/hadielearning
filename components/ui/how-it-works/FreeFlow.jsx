@@ -63,7 +63,7 @@ const FreeFlow = () => {
         <div className="right-box-content-pass">
           <div className="">
             <h2 className="text-start">Pass</h2>
-            <h5>You will be added to the waitlist and will be entertained on a first come first basis.</h5>
+            <h5>Zaki Qureshi testing123s.</h5>
           </div>
         </div>
 

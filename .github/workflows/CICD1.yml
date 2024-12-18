@@ -1,0 +1,44 @@
+name: CICD Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Staging:
+    runs-on: ubuntu-latest
+    environment: Staging
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Execute remote SSH commands
+        uses: appleboy/ssh-action@v0.1.0
+        with:
+          host: 156.67.80.49
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            # Navigate to the project directory
+            cd /root/hadielearn-prod-13
+
+            # Perform git pull to update repository
+            echo "Pulling the latest code from git repository..."
+            git pull
+
+            # Build the Docker image with the name 'hadi:latest'
+            echo "Building Docker image hadi:latest..."
+            docker build -t hadi:latest .
+
+            # Remove all running containers and images
+            echo "Stopping and removing all running containers..."
+            docker stop $(docker ps -aq) || true
+            docker rm $(docker ps -aq) || true
+            
+            echo "Removing all Docker images..."
+            docker rmi $(docker images -aq) || true
+
+            # Run the Docker container on port 3000
+            echo "Running the container hadi:latest on port 3000..."
+            docker run -d -p 3000:3000 hadi:latest
