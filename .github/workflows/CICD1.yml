@@ -13,7 +13,8 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Execute remote SSH commands
-        uses: appleboy/ssh-action@v0.1.0
+#        uses: appleboy/ssh-action@v0.1.0
+        uses: appleboy/ssh-action@master
         with:
           host: 156.67.80.49
           username: root
