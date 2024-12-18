@@ -1,0 +1,63 @@
+/* Custom CSS to ensure drawer overlays all other components */
+
+.ant-drawer {
+  z-index: 1050; /* A value higher than your header's z-index */
+}
+
+.header-nav-list {
+  display: none;
+}
+
+.main-head {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px) !important;
+}
+
+/* (******** */
+
+.menu-icon {
+  display: block;
+}
+
+.header-main-button {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-nav-list {
+    display: none;
+  }
+  .header-main-button {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-nav-list {
+    display: block;
+  }
+  .menu-icon {
+    display: none;
+  }
+  .header-main-button {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-nav-list {
+    display: block;
+  }
+  .menu-icon {
+    display: none;
+  }
+
+  .header-main-button {
+    display: block;
+  }
+}

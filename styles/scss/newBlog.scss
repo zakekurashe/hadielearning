@@ -1,0 +1,73 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid transparent; // make border transparent
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: #ffffff; // Add background color
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add box-shadow
+  transition: all 0.3s ease; // Add transition
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); // Add hover effect
+    transform: translateY(-5px); // Lift the card up a bit
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  &__image {
+    flex: 0 0 200px;
+    border-radius: 10px;
+    height: 150px !important;
+    padding: 5px !important;
+    object-fit: cover; // Keeps aspect ratio, but crops image
+    // width: 100%; // Ensure width is 100%
+    // height: 100%; // Ensure height is 100%
+    transition: transform 0.3s ease; // Add transition
+
+    &:hover {
+      transform: scale(1.1); // Zoom in image on hover
+    }
+    @media (min-width: 768px) {
+      margin-left: 0px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &-title {
+      font-size: 1.4em; // Increase size
+      font-weight: 600; // Make it bold
+      margin-bottom: 8px;
+    }
+
+    &-description {
+      font-size: 1em;
+      margin-bottom: 8px;
+      color: #555;
+      line-height: 1.5; // Improve readability
+    }
+
+    &-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8em;
+      color: #777;
+
+      &-views,
+      &-date {
+        margin: 0;
+      }
+    }
+  }
+}

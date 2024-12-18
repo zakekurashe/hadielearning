@@ -1,0 +1,63 @@
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Zibber - Business Consulting HTML5 Template
+    Author: Basic Theme
+    Support: mdsalim400@gmail.com
+    Description:  Zibber is a business multi-Purpose HTML5 Template
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+    CSS INDEX
+    ===================
+
+    01. Theme default CSS
+    02. Header CSS
+    03. Slider CSS
+    04. Features CSS
+    05. Services CSS
+    06. Counter CSS
+    07. Team CSS
+    08. Cta CSS
+    09. Price CSS
+    10. Brand CSS
+    11. Contact CSS
+    12. Faq CSS
+    13. Achievement CSS
+    14. Expart CSS
+    15. Testimonial CSS
+    16. Case CSS
+    17. Blog CSS
+    18. Hero CSS
+    19. Project CSS
+    20. Page Title CSS
+    21. Portfolio CSS
+    22. Footer CSS
+
+
+-----------------------------------------------------------------------------------*/
+
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+// @import "~slick-carousel/slick/slick.css";
+// @import "~slick-carousel/slick/slick-theme.css";
+
+@import "variables";
+@import "mixins";
+@import "common";
+@import "default";
+@import "slider";
+@import "about";
+@import "cta";
+@import "price";
+@import "faq";
+@import "achievement";
+@import "blog";
+
+@import "page-title";
+@import "footer";
+@import "testimonial";
+@import "expart";
+@import "newBlog.scss";
+@import "features";
+@import "contact";
+@import "hero";

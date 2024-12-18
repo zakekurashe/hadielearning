@@ -1,0 +1,22 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+@import "react-phone-input-2/lib/style.css";
+
+/* globals.css */
+@import "./css/header.css";
+@import "./css/mycard.scss";
+@import "./css/pages.css";
+@import "./css/singleBatchLayout.css";
+
+
+// scss
+@import "scss/main.scss";
+
+#nprogress .bar {
+  background: #0f3f5d !important; /* Change to your preferred color */
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #13689c, 0 0 5px #0f3f5d !important; /* Change the shadow color if needed */
+}
